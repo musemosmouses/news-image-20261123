@@ -259,74 +259,89 @@ FIELDS = {
     "WORLD": (75, 85, 99),
 }
 
-# The three leads: (kicker, field, headline, sub-line). All reported
-# on Monday 23 November 2026; see SOURCES.md in the workdir.
+# The three leads, v2: the day's most consequential stories, all
+# first reported Monday 23 November 2026. v1 led with the Java fire
+# and Liverpool; both drop to the grid — a market crash, a tanker
+# war in Hormuz and a collapsed climate summit outrank them.
 LEADS = [
     ("LEAD 1 - CONFLICT - GULF",
      "CONFLICT",
-     "IRAN HITS US RADAR IN BAHRAIN",
-     "THIRD STRIKE IN FIVE DAYS; US JET HITS QESHM SITE"),
-    ("LEAD 2 - DISASTER - JAVA",
-     "DISASTER",
-     "MORE BODIES FOUND IN JAVA FIRE",
-     "SEARCH GOES ON AS TOLL RISES IN SERANG, BANTEN"),
-    ("LEAD 3 - SPORT - ANFIELD",
-     "SPORT",
-     "LIVERPOOL THRASH MAN UTD 4-0",
-     "700TH PREMIER LEAGUE WIN FOR THE REDS"),
+     "IRAN WAR: TANKERS ABLAZE",
+     "MINES HIT TWO TANKERS; US JET HITS QESHM"),
+    ("LEAD 2 - MARKETS - STOCKS",
+     "MARKETS",
+     "AI SELLOFF SINKS MARKETS",
+     "S&P -3.7%, NASDAQ -5.28%, NIKKEI -5.06%"),
+    ("LEAD 3 - CLIMATE - ANTALYA",
+     "CLIMATE",
+     "COP31 ENDS WITH NO DEAL",
+     "EU REJECTS TEXT, TALKS END"),
 ]
 
-# The dense grid: 48 more stories, (headline, field). Headlines stay
-# under 52 characters so they wrap to at most two lines at scale 2.
+# The dense grid, v2: 57 more stories, (headline, field). Every
+# headline is ONE line of at most 25 characters — the v2 renderer
+# draws one scale-2 line per 26px cell, so nothing wraps or overlaps.
+# Mix rebalanced vs v1: India cut from ~15 to 8; the freed slots go
+# to Sudan, Brazil, Turkey, Belgium, Taiwan, US politics, tech and
+# the day's late-breaking stories. All first reported 23 Nov 2026;
+# see SOURCES.md in the workdir.
 GRID = [
-    ("COP31 ENDS WITH NO DEAL ON FOSSIL FUELS", "CLIMATE"),
-    ("UN TO KEEP TALKING ON LETHAL AI WEAPONS", "POLITICS"),
-    ("EISENKOT CALLS SETTLER VIOLENCE 'TERRORISM'", "POLITICS"),
-    ("KYIV SEARCH GOES ON AFTER DRONE HIT", "CONFLICT"),
-    ("ZELENSKYY PRESSES US FOR PATRIOT MISSILES", "POLITICS"),
-    ("SAUDI COALITION INTERCEPTS HOUTHI MISSILE", "CONFLICT"),
-    ("HOUTHIS REPORT STRIKES ON SANAA", "CONFLICT"),
-    ("RUSSIAN CARGO SHIP STILL BURNING OFF FINLAND", "CONFLICT"),
-    ("DRONE BLAST HITS RUSSIAN SHIP IN LIBYA", "CONFLICT"),
-    ("10 PORT WORKERS HURT IN BENGHAZI BLAST", "CONFLICT"),
-    ("MYANMAR JUNTA CALLS ASEAN MOVE 'UNFAIR'", "POLITICS"),
-    ("MALAYSIA TO WORK WITH UN AFTER ICJ RULING", "POLITICS"),
-    ("AUSTRALIA REBUKES US OVER AUKUS REMARKS", "POLITICS"),
-    ("CONGRESS THREATENS SPACEX OVER UKRAINE", "POLITICS"),
-    ("UK TO BUILD UKRAINIAN DRONES IN NEW DEAL", "POLITICS"),
-    ("TRUMP CONFIRMS FBI CRIME DATABASE HACK", "CRIME"),
-    ("NVIDIA ROW: ALICE HUANG 'IN CHIP RING'", "MARKETS"),
-    ("KOREA MINISTER QUITS OVER AI EXAM CHEATING", "POLITICS"),
-    ("11 KILLED AS CARTEL FIGHTS BACK IN SINALOA", "CRIME"),
-    ("15 MILITANTS KILLED IN MASTUNG RAIDS", "CONFLICT"),
-    ("IMRAN KHAN APPEALS SET FOR NOVEMBER 25", "POLITICS"),
-    ("PILGRIMS REACH NANKANA SAHIB", "CULTURE"),
-    ("FOG SHUTS PUNJAB MOTORWAYS", "WEATHER"),
-    ("NEPAL PM HOLDS TALKS WITH MODI IN DELHI", "POLITICS"),
-    ("INDIA, BULGARIA TALK TIES AND BLACK SEA", "POLITICS"),
-    ("BJP MP WADKUTE DIES OF HEART ATTACK", "POLITICS"),
-    ("NINE PILGRIMS KILLED IN KOTA ROAD CRASH", "DISASTER"),
-    ("HYDERABAD STUDENTS PROTEST CASTE REMARKS", "WORLD"),
-    ("MUFTI: SAFFRON FIELDS USED AS DUMP", "POLITICS"),
-    ("SHAH LAUNCHES ARUNACHAL INFRA PUSH", "POLITICS"),
-    ("IFFI HOSTS BRICS FILM ROUNDTABLE", "CULTURE"),
-    ("INDIA POST RECORD 720/9D IN WELLINGTON", "SPORT"),
-    ("JUREL SEES HOPE AS WELLINGTON PITCH SLOWS", "SPORT"),
-    ("ANUPAMA KEEPS WORLD SNOOKER CROWN", "SPORT"),
-    ("LEHMANN DENIES SANDPAPER PLOT ROLE", "SPORT"),
+    ("DYMER STRIKE KILLS 10", "CONFLICT"),
+    ("BOY, 7, ALIVE IN DYMER", "CONFLICT"),
+    ("MERKURY SINKS AT BENGHAZI", "CONFLICT"),
+    ("KREMLIN WARNS BALTIC RISK", "CONFLICT"),
+    ("SUDAN DRONES KILL 5 KIDS", "CONFLICT"),
+    ("24 DEAD IN SOUTH SUDAN", "CONFLICT"),
+    ("HOUTHIS CLAIM REFINERY HIT", "CONFLICT"),
+    ("10 DEAD IN HODEIDA STRIKE", "CONFLICT"),
+    ("DEMS WIN HOUSE, 258 SEATS", "POLITICS"),
+    ("HUBBARD WINS NC RECOUNT", "POLITICS"),
+    ("ZELENSKYY SEEKS 4-WAY TALKS", "POLITICS"),
+    ("TRUMP KILLS THE PENNY", "POLITICS"),
+    ("EISENKOT: SETTLER TERROR", "POLITICS"),
+    ("BOLSONARO IN ICU, BRAZIL", "POLITICS"),
+    ("ISTANBUL RALLIES FOR PRESS", "POLITICS"),
+    ("LE PEN DENIES LEAK TIP", "POLITICS"),
+    ("AUSTRALIA NEARS SOLOMONS", "POLITICS"),
+    ("MODI OFFERS NEPAL $1.6BN", "POLITICS"),
+    ("MEXICO ROUNDS UP CARTEL", "POLITICS"),
+    ("UK TO BUILD UKR DRONES", "POLITICS"),
+    ("NIKKEI -5.06% IN AI ROUT", "MARKETS"),
+    ("GOLD UP AS STOCKS CRASH", "MARKETS"),
+    ("TAIWAN BANS SHORT SELLING", "MARKETS"),
+    ("TATA STEEL'S $1.67BN DEAL", "MARKETS"),
+    ("BESSENT WARNS FED ON RATES", "MARKETS"),
+    ("JAPAN MARKETS SHUT TODAY", "MARKETS"),
+    ("FBI CRIME DATABASE HACKED", "CRIME"),
+    ("HUANG IN CHIP RING PROBE", "CRIME"),
+    ("11 KILLED IN SINALOA", "CRIME"),
+    ("15 KILLED IN MASTUNG", "CRIME"),
+    ("IMRAN APPEALS SET FOR 25TH", "POLITICS"),
+    ("LIVERPOOL THRASH MAN UTD", "SPORT"),
+    ("MARQUEZ WINS 8TH MOTOGP", "SPORT"),
     ("BILLS BEAT DOLPHINS 26-9", "SPORT"),
-    ("PANTHERS EDGE RAVENS 35-33", "SPORT"),
-    ("BEARS BEAT SAINTS 21-13", "SPORT"),
     ("COWBOYS ROUT TITANS 51-30", "SPORT"),
-    ("LIONS BEAT BUCS 31-21, SIX IN A ROW", "SPORT"),
     ("CHIEFS ROUT CARDINALS 34-7", "SPORT"),
     ("EAGLES EDGE STEELERS 19-16", "SPORT"),
     ("JETS STUN CHARGERS 27-24", "SPORT"),
-    ("MESSI SEALS MIAMI WIN OVER NEW ENGLAND", "SPORT"),
-    ("THANKSGIVING STORM MAY GROUND MACY'S BALLOONS", "WEATHER"),
-    ("81.5M AMERICANS TO TRAVEL FOR THANKSGIVING", "WORLD"),
-    ("JAPAN MARKETS SHUT FOR HOLIDAY", "MARKETS"),
-    ("GIFT NIFTY POINTS TO FLAT INDIA OPEN", "MARKETS"),
+    ("MESSI SEALS MIAMI WIN", "SPORT"),
+    ("DELTA OUTAGE DELAYS 1,600", "WORLD"),
+    ("JAVA FIRE TOLL RISES", "DISASTER"),
+    ("KYIV SEARCH GOES ON", "CONFLICT"),
+    ("GAZA CONTAMINATION FEARS", "WORLD"),
+    ("EBOLA FIGHT HITS RESPONSE", "SCIENCE"),
+    ("BELGIAN AIRPORTS SHUT", "WORLD"),
+    ("METR: AI OUTPACES SAFETY", "SCIENCE"),
+    ("81.5M TRAVEL FOR THANKS", "WORLD"),
+    ("THANKSGIVING STORM LOOMS", "WEATHER"),
+    ("INDIA 720/9D IN WELLINGTON", "SPORT"),
+    ("NEPAL PM MEETS MODI", "POLITICS"),
+    ("SHAH'S ARUNACHAL PUSH", "POLITICS"),
+    ("IFFI BRICS FILM MEET", "CULTURE"),
+    ("HYDERABAD STUDENTS PROTEST", "WORLD"),
+    ("KOTA CRASH KILLS 9", "DISASTER"),
+    ("BJP MP WADKUTE DIES", "POLITICS"),
+    ("FOG SHUTS PUNJAB ROADS", "WEATHER"),
 ]
 
 # Ten moments of the day, WIB (UTC+7), in the order they were first
@@ -345,75 +360,59 @@ TIMELINE = [
 ]
 
 
-def art_radar(pg, x, y, w, h):
-    """Night sky over a radar dome: a sweeping dish, warning arcs
-    and drone dots closing in, for the Bahrain radar strike."""
-    pg.box(x, y, w, h, (12, 22, 44))
-    cx, cy = x + w // 2, y + h - 10
-    for r in (58, 44, 30):
-        for k in range(0, 181, 6):
-            ax = cx + int(r * math.cos(math.radians(180 + k)))
-            ay = cy - int(r * math.sin(math.radians(k)))
-            pg.dot(ax, ay, (90, 140, 200))
-    pg.tri(cx - 34, cy, cx + 34, cy, cx, cy - 40, (120, 160, 210))
-    pg.seg(cx, cy - 40, cx + 44, cy - 62, (255, 210, 60))
-    pg.ball(cx + 44, cy - 62, 3, (255, 210, 60))
-    pg.box(x, y + h - 6, w, 6, (8, 14, 30))
-    for bx, bw, bh in ((20, 14, 18), (70, 10, 26), (250, 12, 20),
-                       (292, 10, 24)):
-        pg.box(x + bx, y + h - 6 - bh, bw, bh, (8, 14, 30))
-    for dx, dy in ((36, 14), (120, 8), (210, 18), (280, 10), (160, 22)):
-        pg.ball(x + dx, y + dy, 2, (255, 120, 60))
-        pg.seg(x + dx - 12, y + dy + 4, x + dx, y + dy, (255, 120, 60))
+def art_tanker(pg, x, y, w, h):
+    """A supertanker ablaze on a night sea: hull, flames licking
+    the deck and black smoke rolling up, for the Hormuz tanker hits."""
+    pg.box(x, y, w, h, (10, 18, 38))
+    for wy in range(y + 52, y + h, 8):
+        pg.rule_h(x, wy, w, (16, 34, 64))
+    pg.box(x + 40, y + 44, 220, 20, (40, 44, 54))
+    pg.box(x + 40, y + 40, 220, 4, (150, 40, 30))
+    pg.box(x + 250, y + 22, 26, 22, (60, 64, 74))
+    for fx, fh in ((70, 30), (120, 40), (170, 28), (215, 34)):
+        pg.tri(x + fx, y + 42, x + fx + 11, y + 42 - fh,
+               x + fx + 22, y + 42, (255, 120, 30))
+        pg.tri(x + fx + 5, y + 42, x + fx + 11, y + 42 - fh + 12,
+               x + fx + 17, y + 42, (255, 210, 90))
+    for sx, sy, sr in ((110, 8, 10), (180, 4, 12), (240, 10, 8)):
+        pg.ball(x + sx, y + sy, sr, (70, 66, 62))
+    pg.ball(x + 300, y + 30, 3, (255, 210, 60))
 
 
-def art_fire(pg, x, y, w, h):
-    """A factory block at night with flames licking the roof and
-    smoke rolling up, for the Java factory fire."""
-    pg.box(x, y, w, h, (28, 16, 20))
-    pg.box(x + 30, y + 34, 150, h - 34, (74, 52, 44))
-    pg.box(x + 190, y + 50, 106, h - 50, (58, 42, 36))
-    for wx in range(x + 44, x + 170, 28):
-        pg.box(wx, y + 48, 14, 12, (255, 190, 80))
-    pg.box(x + 206, y + 62, 16, 12, (255, 190, 80))
-    pg.box(x + 246, y + 62, 16, 12, (255, 190, 80))
-    for fx, fh in ((52, 34), (96, 44), (140, 30), (206, 26), (252, 32)):
-        pg.tri(x + fx, y + 36, x + fx + 12, y + 36 - fh,
-               x + fx + 24, y + 36, (255, 120, 30))
-        pg.tri(x + fx + 6, y + 36, x + fx + 12, y + 36 - fh + 12,
-               x + fx + 18, y + 36, (255, 210, 90))
-    for sx, sy, sr in ((80, 12, 9), (130, 6, 11), (220, 10, 9),
-                       (270, 16, 7), (170, 4, 8)):
-        pg.ball(x + sx, y + sy, sr, (120, 110, 105))
-    pg.box(x, y + h - 6, w, 6, (16, 10, 12))
+def art_chart(pg, x, y, w, h):
+    """A market board in free fall: a plunging red line across
+    gridlines, for the Monday AI selloff."""
+    pg.box(x, y, w, h, (14, 20, 30))
+    for gy in range(y + 12, y + h, 14):
+        pg.rule_h(x + 8, gy, w - 16, (30, 44, 62))
+    pts = [(10, 14), (50, 18), (90, 26), (130, 24), (170, 40),
+           (210, 52), (250, 62), (290, 76)]
+    for (ax, ay), (bx, by) in zip(pts, pts[1:]):
+        pg.seg(x + ax, y + ay, x + bx, y + by, (255, 80, 70))
+        pg.seg(x + ax, y + ay + 1, x + bx, y + by + 1, (255, 80, 70))
+    for px, py in pts:
+        pg.ball(x + px, y + py, 2, (255, 210, 90))
+    pg.tri(x + 292, y + 76, x + 306, y + 76, x + 299, y + 62,
+           (255, 80, 70))
+    pg.box(x + 12, y + 8, 4, 4, (255, 210, 90))
 
 
-def art_ball(pg, x, y, w, h):
-    """A floodlit pitch at night: goal frame, net, and a ball
-    curling into the top corner, for Liverpool 4-0 Man Utd."""
-    pg.box(x, y, w, h, (14, 80, 44))
-    for sy in range(y + 8, y + h, 14):
-        pg.rule_h(x, sy, w, (18, 92, 52))
-    pg.box(x + 190, y + 12, 110, 58, (210, 225, 235))
-    pg.box(x + 196, y + 18, 98, 46, (14, 80, 44))
-    for nx in range(x + 200, x + 292, 10):
-        pg.rule_v(nx, y + 18, 46, (210, 225, 235))
-    for ny in range(y + 22, y + 62, 10):
-        pg.rule_h(x + 196, ny, 98, (210, 225, 235))
-    pg.box(x + 190, y + 12, 4, 58, WHITE)
-    pg.box(x + 296, y + 12, 4, 58, WHITE)
-    pg.box(x + 190, y + 12, 110, 4, WHITE)
-    pg.ball(x + 96, y + 44, 12, WHITE)
-    pg.ball(x + 92, y + 40, 3, INK)
-    pg.ball(x + 100, y + 48, 3, INK)
-    pg.ball(x + 96, y + 44, 2, INK)
-    for tx in (60, 40, 22):
-        pg.seg(x + tx + 24, y + 44, x + tx, y + 44, WHITE)
-    pg.box(x + 8, y + h - 10, 60, 8, (230, 235, 240))
-    pg.box(x + 250, y + h - 12, 60, 10, (230, 235, 240))
+def art_summit(pg, x, y, w, h):
+    """An empty summit table: nameplates, a gavel and no deal,
+    for COP31 ending without agreement."""
+    pg.box(x, y, w, h, (24, 30, 44))
+    pg.box(x + 20, y + 48, 286, 12, (120, 92, 60))
+    pg.box(x + 20, y + 60, 12, 24, (90, 68, 44))
+    pg.box(x + 294, y + 60, 12, 24, (90, 68, 44))
+    for nx in (60, 120, 180, 240):
+        pg.box(x + nx, y + 30, 34, 14, (235, 230, 215))
+        pg.rule_h(x + nx + 5, y + 36, 24, (178, 34, 34))
+    pg.box(x + 140, y + 14, 46, 8, (160, 120, 70))
+    pg.box(x + 160, y + 6, 6, 12, (160, 120, 70))
+    pg.seg(x + 40, y + 70, x + 300, y + 70, (60, 70, 90))
 
 
-ART = [art_radar, art_fire, art_ball]
+ART = [art_tanker, art_chart, art_summit]
 
 
 def grain(pg):
@@ -451,13 +450,13 @@ def render():
     put_text_c(pg, W // 2, 8, "THE WORLD IN ONE IMAGE", 2, WHITE)
     put_bold_c(pg, W // 2, 30, "MONDAY 23 NOVEMBER 2026", 5, WHITE)
     put_text_c(pg, W // 2, 74,
-               "51 STORIES - ALL FIRST REPORTED MONDAY 23 NOVEMBER 2026",
+               "60 STORIES - ALL FIRST REPORTED MONDAY 23 NOVEMBER 2026",
                1, PALE)
     pg.box(0, 92, W, 6, RED)
     # Stat strip: honest counts from this page, red numbers on paper.
     pg.rule_h(0, 98, W, EDGE)
     put_mixed_c(pg, W // 2, 106,
-                [("51", RED), (" STORIES   ", INK), ("3", RED),
+                [("60", RED), (" STORIES   ", INK), ("3", RED),
                  (" LEADS   ", INK), ("10", RED), (" MOMENTS   ", INK),
                  ("12", RED), (" FIELDS   ", INK),
                  ("23 NOV", RED), (" 2026", INK)],
@@ -479,57 +478,54 @@ def render():
         for j, ln in enumerate(wrap(sub, 25)[:2]):
             put_text(pg, px + 10, 295 + j * 16, ln, 2, GREY)
     # Grid section header.
-    put_bold(pg, 8, 336, "MORE FROM THE DAY - 48 STORIES", 2, INK)
+    put_bold(pg, 8, 336, "MORE FROM THE DAY - 57 STORIES", 2, INK)
     put_text(pg, 830, 339, "COLOUR = FIELD - LEGEND BELOW", 1, GREY)
-    # Dense grid: 3 columns x 16 rows, one story a cell. Zebra rows
-    # and a wider field bar make the wall of text scannable.
+    # Dense grid, v2: 3 columns x 19 rows, ONE line per cell. v1 wrapped
+    # two lines into 30px rows and the lines overlapped into garble;
+    # a single scale-2 line in a 26px row stays crisp at any size.
+    # Headlines are capped at 25 characters so none wraps or clips.
     for idx, (head, field) in enumerate(GRID):
         col, row = idx % 3, idx // 3
         cx = 8 + col * 338
-        cy = 354 + row * 30
-        pg.box(cx, cy, 330, 30,
+        cy = 354 + row * 26
+        pg.box(cx, cy, 330, 26,
                WHITE if row % 2 == 0 else (242, 238, 225))
-        pg.box(cx, cy, 6, 30, FIELDS[field])
-        lines = wrap(head, 26)[:2]
-        if len(lines) == 1:
-            put_text(pg, cx + 13, cy + 8, lines[0], 2, INK)
-        else:
-            put_text(pg, cx + 13, cy + 1, lines[0], 2, INK)
-            put_text(pg, cx + 13, cy + 15, lines[1], 2, INK)
-    for r in range(17):
-        pg.rule_h(8, 354 + r * 30, 1008, HAIR)
+        pg.box(cx, cy, 6, 26, FIELDS[field])
+        put_text(pg, cx + 13, cy + 6, head, 2, INK)
+    for r in range(20):
+        pg.rule_h(8, 354 + r * 26, 1008, HAIR)
     for vx in (340, 678):
-        pg.rule_v(vx, 354, 480, HAIR)
+        pg.rule_v(vx, 354, 494, HAIR)
     pg.rule_h(8, 354, 1008, EDGE)
-    pg.rule_h(8, 833, 1008, EDGE)
-    pg.rule_v(8, 354, 480, EDGE)
-    pg.rule_v(1015, 354, 480, EDGE)
+    pg.rule_h(8, 847, 1008, EDGE)
+    pg.rule_v(8, 354, 494, EDGE)
+    pg.rule_v(1015, 354, 494, EDGE)
     # Timeline: ten moments, times in WIB, bold red times.
-    put_bold(pg, 8, 842, "THE DAY IN TEN MOMENTS - TIMES IN WIB", 2, INK)
-    pg.rule_h(8, 856, 1008, HAIR)
+    put_bold(pg, 8, 856, "THE DAY IN TEN MOMENTS - TIMES IN WIB", 2, INK)
+    pg.rule_h(8, 870, 1008, HAIR)
     for idx, (when, what) in enumerate(TIMELINE):
         col, row = idx % 2, idx // 2
         tx = 8 + col * 508
-        ty = 860 + row * 18
+        ty = 874 + row * 18
         put_bold(pg, tx, ty + 2, when, 2, RED)
         put_text(pg, tx + 96, ty + 2, what, 2, INK)
     # Footer: date check, legend, sources, faithfulness note.
-    pg.box(0, 950, W, 2, RED)
-    pg.box(0, 952, W, 72, NAVY)
-    put_bold_c(pg, W // 2, 962,
-               "DATE CHECK: MONDAY 23 NOVEMBER 2026 - 51 STORIES, "
+    pg.box(0, 966, W, 2, RED)
+    pg.box(0, 968, W, 56, NAVY)
+    put_bold_c(pg, W // 2, 976,
+               "DATE CHECK: MONDAY 23 NOVEMBER 2026 - 60 STORIES, "
                "ALL FIRST REPORTED 23 NOV 2026",
                2, GOLD)
-    put_text_c(pg, W // 2, 982,
+    put_text_c(pg, W // 2, 992,
                "RED CONFLICT - BLUE POLITICS - GOLD MARKETS - PURPLE SPORT - "
                "TEAL SCIENCE - PINK CULTURE - SLATE CRIME - BROWN DISASTER - "
                "SKY WEATHER - GREEN CLIMATE - ROSE MEDIA",
                1, WHITE)
-    put_text_c(pg, W // 2, 994,
+    put_text_c(pg, W // 2, 1002,
                "SOURCES: BBC - REUTERS - AP - FLASH SCORE - DUNYA NEWS - "
                "JAGRAN - OBSERVER VOICE - SALONVISION - BIZEN-ART",
                1, PALE)
-    put_text_c(pg, W // 2, 1006,
+    put_text_c(pg, W // 2, 1012,
                "DRAWN ONLY FROM REPORTS PUBLISHED 23 NOV 2026 IN ANY TIME ZONE - "
                "NOTHING INVENTED, NOTHING SPECULATED AS FACT",
                1, PALE)
